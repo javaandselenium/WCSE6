@@ -21,6 +21,7 @@ public class Test2 {
 		Actions a=new Actions(driver);
 		a.doubleClick(ele).perform();
 		
+		
 
 	}
 

@@ -8,23 +8,36 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Test0 {
+public class Test2 {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://www.ebay.com/");
+		driver.get("file:///C:/Users/QSP/Desktop/dd.html");
 	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
-	   WebElement ele = driver.findElement(By.id("gh-cat"));
-	   Select s=new Select(ele) ;
-	   s.selectByIndex(4);
-	   s.selectByValue("625");
-	   s.selectByVisibleText("Health & Beauty");
+	    WebElement dd = driver.findElement(By.id("MTR"));
+	 
+	    Select s=new Select(dd);
+	    s.selectByIndex(0);
+	    s.selectByValue("c");
+	    s.selectByVisibleText("Milk");
+	    
 	   
-	   Thread.sleep(3000);
-	   driver.close();
+	    s.deselectByIndex(0);
+	    Thread.sleep(3000);
+	    s.deselectByValue("c");
+	    Thread.sleep(3000);
+	    s.deselectByVisibleText("Milk");
+	    
+	    
+	    
 	   
+	    
+	    Thread.sleep(3000);
+	    
+	    driver.close();
+	    
 	}
 
 }

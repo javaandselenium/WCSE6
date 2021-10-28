@@ -1,5 +1,6 @@
 package dropdown;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Test0 {
+public class Test1 {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver=new ChromeDriver();
@@ -22,9 +23,18 @@ public class Test0 {
 	   s.selectByValue("625");
 	   s.selectByVisibleText("Health & Beauty");
 	   
+	   List<WebElement> allOptions = s.getOptions();
+	   System.out.println(allOptions.size());
+	   
+	   for(WebElement opt:allOptions) {
+		   System.out.println(opt.getText());
+	   }
+	   
+	   s.deselectAll();
+	   
 	   Thread.sleep(3000);
 	   driver.close();
-	   
+
 	}
 
 }
