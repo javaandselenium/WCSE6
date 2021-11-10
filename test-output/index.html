@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-Suite" class="navigator-link ">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">3 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +102,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testng.Testcase1" class="method navigator-link" hash-for-method="tc1">tc1</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testng.Parallel" class="method navigator-link" hash-for-method="demo(chrome)">demo(chrome)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testng.Testcase2" class="method navigator-link" hash-for-method="tc2">tc2</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testng.Testcase3" class="method navigator-link" hash-for-method="tc3">tc3</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testng.Parallel" class="method navigator-link" hash-for-method="demo(firefox)">demo(firefox)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -130,44 +125,23 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testng.Testcase2</span>
+              <span class="class-name">testng.Parallel</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="tc2">
-                  </a> <!-- tc2 -->
-                  <span class="method-name">tc2</span>
+                  <a name="demo(chrome)">
+                  </a> <!-- demo(chrome) -->
+                  <span class="method-name">demo</span>
+                  <span class="parameters">(chrome)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testng.Testcase1</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="tc1">
-                  </a> <!-- tc1 -->
-                  <span class="method-name">tc1</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testng.Testcase3</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="tc3">
-                  </a> <!-- tc3 -->
-                  <span class="method-name">tc3</span>
+                  <a name="demo(firefox)">
+                  </a> <!-- demo(firefox) -->
+                  <span class="method-name">demo</span>
+                  <span class="parameters">(firefox)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -181,14 +155,25 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+&lt;suite parallel=&quot;tests&quot; name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test1&quot;&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testng.Testcase1&quot;/&gt;
-      &lt;class name=&quot;testng.Testcase2&quot;/&gt;
-      &lt;class name=&quot;testng.Testcase3&quot;/&gt;
+      &lt;class name=&quot;testng.Parallel&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;/test&gt; &lt;!-- Test1 --&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test2&quot;&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;firefox&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;testng.Parallel&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test2 --&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Test3&quot;&gt;
+    &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;testng.Parallel&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test3 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -200,7 +185,13 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (3 classes)</span>
+                <span class="test-name">Test1 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test2 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test3 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -226,24 +217,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'tc3')
-data.setCell(0, 2, 'testng.Testcase3')
-data.setCell(0, 3, 11764);
+data.setCell(0, 1, 'demo')
+data.setCell(0, 2, 'testng.Parallel')
+data.setCell(0, 3, 57591);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'tc2')
-data.setCell(1, 2, 'testng.Testcase2')
-data.setCell(1, 3, 6048);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'tc1')
-data.setCell(2, 2, 'testng.Testcase1')
-data.setCell(2, 3, 3546);
+data.setCell(1, 1, 'demo')
+data.setCell(1, 2, 'testng.Parallel')
+data.setCell(1, 3, 25563);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 21 seconds</span>
+              <span class="suite-total-time">Total running time: 57 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -255,24 +242,17 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">tc3</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Log in to Facebook</span>
-                <span class="reporter-method-output">https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fpages%2Fcreate%2F%3Fref_type%3Dregistration_form</span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">tc2</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Forgotten Password | Can't Log In | Facebook</span>
-                <span class="reporter-method-output">https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0</span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">tc1</span>
+              <span class="reporter-method-name">demo(chrome)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output">Facebook – log in or sign up</span>
-                <span class="reporter-method-output">https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjM2NDYwMjc1LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D</span>
+                <span class="reporter-method-output">https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjM2NTQ0NjY1LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">demo(firefox)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Log in to Facebook</span>
+                <span class="reporter-method-output">https://www.facebook.com/login/?privacy_mutation_token=eyJ0eXBlIjowLCJjcmVhdGlvbl90aW1lIjoxNjM2NTQ0Njg1LCJjYWxsc2l0ZV9pZCI6MzgxMjI5MDc5NTc1OTQ2fQ%3D%3D</span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -290,49 +270,19 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testng.Testcase1</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">openApp</span>
+              <div class="chronological-class-name">testng.Parallel</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">demo(firefox)</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">tc1</span>
-                <span class="method-start">9218 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">closeapp</span>
-                <span class="method-start">12770 ms</span>
-              </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">testng.Testcase2</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">openApp</span>
-                <span class="method-start">17832 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">tc2</span>
-                <span class="method-start">25486 ms</span>
+                <span class="method-name">demo(chrome)</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">closeApp</span>
-                <span class="method-start">31536 ms</span>
-              </div> <!-- configuration-method after -->
-            </div> <!-- chronological-class -->
-            <div class="chronological-class">
-              <div class="chronological-class-name">testng.Testcase3</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">openApp</span>
-                <span class="method-start">36412 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">tc3</span>
-                <span class="method-start">43279 ms</span>
+                <span class="method-name">demo(chrome)</span>
+                <span class="method-start">1 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">closeApp</span>
-                <span class="method-start">55045 ms</span>
-              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
