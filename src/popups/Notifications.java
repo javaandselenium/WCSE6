@@ -18,8 +18,8 @@ public class Notifications {
 		
 		//Firefox
 		FirefoxOptions option1=new FirefoxOptions();
-		option.addArguments("--disable-notifications");
-		WebDriver driver=new FirefoxDriver(option1);
+//		option.addArguments("--disable-notifications");
+//		WebDriver driver=new FirefoxDriver(option1);
 		
 		
 		
